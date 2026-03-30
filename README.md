@@ -30,6 +30,58 @@ Some prompts to answer:
 You can include a simple diagram or bullet list if helpful.
 
 ---
+Each Song includes features like genre, mood, energy, tempo, valence, danceability, and acousticness. All the features are important. For exmaple, genre tells us about the style and mood tells us about the feeling. And the other features tells us more about specifics about the song like tempo and danceability. The UserProfile should tell you what does our listener prefer. They should includes all the factors that songs.csv mention. However, I think genre and mood should be the most important information. The Recommender should give a score for each song by comparing the songs features to the user's preferences. If the song matches the user's preferences for genre and mood, they should earn extra points. If they are farther away from the user's preferences, they should earn less points. The Recommender should reward points based on similaries to be more inligned with the User's preferences. The Recommender should also sort the songs from highest to lowest scores. The highest score songs should be choosen as recommendations because they match the closest to what the user would like. The flow should be look at the UserProfile preferences, compare the song with it and give a score, sort all the songs by score, and then recommend the top score songs to the User. 
+
+
+Example of User Profile:
+user_profile = {
+    "favorite_genre": "lofi",
+    "favorite_mood": "chill",
+    "target_energy": 0.35,
+    "target_tempo_bpm": 75,
+    "target_valence": 0.60,
+    "target_danceability": 0.55,
+    "target_acousticness": 0.80
+}
+
+Because there are clear classification for the categories, it should be able to separate intense rock from chill lofi with all the filtering. 
+
+Algorithm Recipe:
+2.0 points if the song’s genre matches the user’s favorite genre. 1 points if the song’s mood matches the user’s favorite mood
+There should be similar points for numeric features: energy, tempo_bpm, valence, danceability, and acousticness.
+
+The closer the song is to the user’s target, the more points it gets.
+
+Sample Recipe: 
+score = 0
+
+if song.genre == user_profile["favorite_genre"]:
+    score += 2.0
+
+if song.mood == user_profile["favorite_mood"]:
+    score += 1.0
+
+score += (1 - abs(song.energy - user_profile["target_energy"]))* 1.5
+score += max(0, 1 - abs(song.tempo_bpm - user_profile["target_tempo_bpm"]) / 100) * 1.0
+score += (1 - abs(song.valence - user_profile["target_valence"])) * 1.0
+score += (1 - abs(song.danceability - user_profile["target_danceability"])) * 1.0
+score += (1 - abs(song.acousticness - user_profile["target_acousticness"])) * 1.0
+
+
+Mermaid Diagram:
+
+flowchart TD
+    A[User Profile Preferences] --> B[Load songs from songs.csv]
+    B --> C[Loop through each song]
+    C --> D[Compare song features to user preferences]
+    D --> E[Calculate recommendation score]
+    E --> F[Store song and score]
+    F --> G[Sort all songs by score]
+    G --> H[Return Top K recommendations]
+
+In conclusion, this system uses the user's listening behavior to recommend songs based on the features of each song to the specific user preference profile. Each song includes factors such as genre, mood, energy, tempo, valence, danceability, and acousticness. The recommender should loop through each song in songs.csv and give a score based on how close it matches the user's preferences. The songs with the highest scores will be ranks first and be at the top of the recommendation. 
+
+There are some potential biases. The dataset is small, so there isn't a lot of variety. The system might be bias toware teh user's favorite genre even when other songs have similar moods or factors because it is weighted the most. It could ignore great songs that match the user's mood if it's not in the same genre. 
 
 ## Getting Started
 
@@ -53,6 +105,9 @@ pip install -r requirements.txt
 ```bash
 python -m src.main
 ```
+After Implementing Phase 3: Implementation, these are the current results I receive
+
+![alt text](image.png)
 
 ### Running Tests
 
