@@ -67,23 +67,22 @@ score += (1 - abs(song.valence - user_profile["target_valence"])) * 1.0
 score += (1 - abs(song.danceability - user_profile["target_danceability"])) * 1.0
 score += (1 - abs(song.acousticness - user_profile["target_acousticness"])) * 1.0
 
-
-```markdown
-## Mermaid Diagram
+Mermaid Diagram:
 
 ```mermaid
 flowchart TD
-    A[User Profile Preferences] --> B[Load songs from songs.csv]
-    B --> C[Loop through each song]
-    C --> D[Compare song features to user preferences]
-    D --> E[Calculate recommendation score]
-    E --> F[Store song and score]
-    F --> G[Sort all songs by score]
-    G --> H[Return Top K recommendations]
+A[User preferences] --> B[Load songs from songs.csv]
+B --> C[Loop through each song]
+C --> D[Compare song features to user preferences]
+D --> E[Calculate recommendation score]
+E --> F[Store song and score]
+F --> G[Sort songs by score]
+G --> H[Return top K recommendations]
+```
 
 In conclusion, this system uses the user's listening behavior to recommend songs based on the features of each song to the specific user preference profile. Each song includes factors such as genre, mood, energy, tempo, valence, danceability, and acousticness. The recommender should loop through each song in songs.csv and give a score based on how close it matches the user's preferences. The songs with the highest scores will be ranks first and be at the top of the recommendation. 
 
-There are some potential biases. The dataset is small, so there isn't a lot of variety. The system might be bias toware teh user's favorite genre even when other songs have similar moods or factors because it is weighted the most. It could ignore great songs that match the user's mood if it's not in the same genre. 
+There are some potential biases. The dataset is small, so there isn't a lot of variety. The system might be bias toware teh user's favorite genre even when other songs have similar moods or factors because it is weighted the most. It could ignore great songs that match the user's mood if it's not in the same genre.
 
 ## Getting Started
 
