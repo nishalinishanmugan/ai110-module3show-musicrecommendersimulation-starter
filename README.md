@@ -68,8 +68,10 @@ score += (1 - abs(song.danceability - user_profile["target_danceability"])) * 1.
 score += (1 - abs(song.acousticness - user_profile["target_acousticness"])) * 1.0
 
 
-Mermaid Diagram:
+```markdown
+## Mermaid Diagram
 
+```mermaid
 flowchart TD
     A[User Profile Preferences] --> B[Load songs from songs.csv]
     B --> C[Loop through each song]
