@@ -31,7 +31,7 @@ Some prompts to answer:
 You can include a simple diagram or bullet list if helpful.
 
 ---
-Each Song includes features like genre, mood, energy, tempo, valence, danceability, and acousticness. All the features are important. For exmaple, genre tells us about the style and mood tells us about the feeling. And the other features tells us more about specifics about the song like tempo and danceability. The UserProfile should tell you what does our listener prefer. They should includes all the factors that songs.csv mention. However, I think genre and mood should be the most important information. The Recommender should give a score for each song by comparing the songs features to the user's preferences. If the song matches the user's preferences for genre and mood, they should earn extra points. If they are farther away from the user's preferences, they should earn less points. The Recommender should reward points based on similaries to be more inligned with the User's preferences. The Recommender should also sort the songs from highest to lowest scores. The highest score songs should be choosen as recommendations because they match the closest to what the user would like. The flow should be look at the UserProfile preferences, compare the song with it and give a score, sort all the songs by score, and then recommend the top score songs to the User. 
+Each Song includes features like genre, mood, energy, tempo, valence, danceability, and acousticness. All the features are important. For example, genre tells us about the style and mood tells us about the feeling. And the other features tells us more about specifics about the song like tempo and danceability. The UserProfile should tell you what does our listener prefer. They should includes all the factors that songs.csv mention. However, I think genre and mood should be the most important information. The Recommender should give a score for each song by comparing the songs features to the user's preferences. If the song matches the user's preferences for genre and mood, they should earn extra points. If they are farther away from the user's preferences, they should earn less points. The Recommender should reward points based on similaries to be more inligned with the User's preferences. The Recommender should also sort the songs from highest to lowest scores. The highest score songs should be choosen as recommendations because they match the closest to what the user would like. The flow should be look at the UserProfile preferences, compare the song with it and give a score, sort all the songs by score, and then recommend the top score songs to the User. 
 
 
 Example of User Profile:
@@ -45,7 +45,7 @@ user_profile = {
     "target_acousticness": 0.80
 }
 
-Because there are clear classification for the categories, it should be able to separate intense rock from chill lofi with all the filtering. 
+Because there is clear classification for the categories, it should be able to separate intense rock from chill lofi with all the filtering for example. 
 
 Algorithm Recipe:
 2.0 points if the song’s genre matches the user’s favorite genre. 1 points if the song’s mood matches the user’s favorite mood
@@ -184,8 +184,9 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
 
-
 ---
+The student is trying to understand how the system creates song recommendations by comparing several factors such as genre, energy, tempo, etc from the song with the user's existing profile.The brainstorm in the beginning of the project was probably the biggest thing the student needs to work through to develop this system because they have to consider scoring and generate 10 more songs in songs.csv. Even with a basic algorithm, the system can produce recommendations that feel accurate when the right features are used. The dataset is really small and the sytem is open to biases. For example, if one feature like energy is weighted too heavily, the system may repeatedly recommend songs that match intensity but not the overall mood. The more complex or mixed a user's profile, the more likely they will be treated unfairly in this system. 
+
 
 ## 7. `model_card_template.md`
 
