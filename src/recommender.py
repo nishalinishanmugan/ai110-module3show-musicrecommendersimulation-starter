@@ -126,6 +126,7 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
         reasons.append("genre match (+2.0)")
 
     # Mood match
+    #Temporarily commented this out to check how much mood impacts the system
     if song["mood"].lower() == user_prefs.get("mood", "").lower():
         score += 1.0
         reasons.append("mood match (+1.0)")
