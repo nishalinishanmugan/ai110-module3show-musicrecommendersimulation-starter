@@ -187,6 +187,16 @@ Write 1 to 2 paragraphs here about what you learned:
 ---
 The student is trying to understand how the system creates song recommendations by comparing several factors such as genre, energy, tempo, etc from the song with the user's existing profile.The brainstorm in the beginning of the project was probably the biggest thing the student needs to work through to develop this system because they have to consider scoring and generate 10 more songs in songs.csv. Even with a basic algorithm, the system can produce recommendations that feel accurate when the right features are used. The dataset is really small and the sytem is open to biases. For example, if one feature like energy is weighted too heavily, the system may repeatedly recommend songs that match intensity but not the overall mood. The more complex or mixed a user's profile, the more likely they will be treated unfairly in this system. 
 
+## Reflect and Discuss
+The summary should be 5–7 sentences covering:
+
+- The core concept students needed to understand
+- Where students are most likely to struggle
+- Where AI was helpful vs misleading
+- One way they would guide a student without giving the answer
+
+The student is trying to understand how the system creates song recommendations by comparing several factors such as genre, energy, tempo, etc from the song with the user's existing profile.The brainstorm in the beginning of the project was probably the biggest thing the student needs to work through to develop this system because they have to consider scoring and generate 10 more songs in songs.csv. The students should remember to pip install -r requirements.txt. It is mentioned in the README.md, but it isn't mentioned in the lab. They might have issues running their code if everything isn't pip installed. Als this line needs to be changed from from "recommender import load_songs, recommend_songs" to "from src.recommender import load_songs, recommend_songs" because python -m src.main wasn't working without that change. The student may run into that issue. Other than that the lab was pretty straight forward. The AI was helping for structuring the code and suggesting scoring strategies, but it is misleading if the student isn't very specific about that they want. One way the AI can guide a student without giving the answer, I would recommend they they student really works though the beginning two phases of this Show so they know what to expect in terms of results and they are not blindly accepting results from the AI. 
+
 
 ## 7. `model_card_template.md`
 
@@ -303,12 +313,3 @@ A few sentences about what you learned:
 
 As I worked on this project, I learned how the recommender uses the songs.csv data to recommend songs to the user based on the user's profile by comparing features and assigning scores. I saw how small changes like removing mood from the recommender can make it less accurate. I was surprised that the system worked relatively okay though. This project changed how I think about real music recommenders. I now understand that they rely heavily on data and weighting, and that bias can easily appear if certain features are overemphasized. Music Recommenders that Apple Music or Spotify must be complex to consider many factors and many genres. Even if a system seems “smart,” human judgment is still important for understanding context, emotion, and nuance that a basic model cannot fully understand. I did need to double check the AI tools as I worked on this project. My biggest learning moment was seeing how the recommendations changes when factors were taken out. I would try to expand the datset if I had more time. 
 
-## Reflect and Discuss
-The summary should be 5–7 sentences covering:
-
-- The core concept students needed to understand
-- Where students are most likely to struggle
-- Where AI was helpful vs misleading
-- One way they would guide a student without giving the answer
-
-The student is trying to understand how the system creates song recommendations by comparing several factors such as genre, energy, tempo, etc from the song with the user's existing profile.The brainstorm in the beginning of the project was probably the biggest thing the student needs to work through to develop this system because they have to consider scoring and generate 10 more songs in songs.csv. The students should remember to pip install -r requirements.txt. It is mentioned in the README.md, but it isn't mentioned in the lab. They might have issues running their code if everything isn't pip installed. Als this line needs to be changed from from "recommender import load_songs, recommend_songs" to "from src.recommender import load_songs, recommend_songs" because python -m src.main wasn't working without that change. The student may run into that issue. Other than that the lab was pretty straight forward. The AI was helping for structuring the code and suggesting scoring strategies, but it is misleading if the student isn't very specific about that they want. One way the AI can guide a student without giving the answer, I would recommend they they student really works though the beginning two phases of this Show so they know what to expect in terms of results and they are not blindly accepting results from the AI. 
